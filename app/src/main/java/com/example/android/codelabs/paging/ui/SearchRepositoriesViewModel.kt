@@ -46,7 +46,6 @@ class SearchRepositoriesViewModel(private val repository: GithubRepository) : Vi
         val newResult: Flow<PagingData<Repo>> = repository.getSearchResultStream(queryString)
                 .cachedIn(viewModelScope)
         currentSearchResult = newResult
-        Timber.i(newResult.toString())
         return newResult
     }
 
